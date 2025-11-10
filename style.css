@@ -1,96 +1,71 @@
-/* Page-wide animated sky-blue -> royal-purple gradient */
-html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: poppins, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
-	/* Animated gradient that also transitions its color stops (smooth background color transitions) */
-	background: linear-gradient(135deg, #87CEEB 0%, #6B2FFF 50%, #6A0DAD 100%);
-	background-size: 400% 400%;
-	/* Single animation handles both background-position and color-stop transitions */
-	animation: gradientShift 14s ease-in-out infinite;
-	color: #ffffff; /* ensure default text is readable on the gradient */
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    background: #001e4d;
 }
-
-@keyframes gradientShift {
-	0% {
-		background: linear-gradient(135deg, #87CEEB 0%, #6B2FFF 50%, #6A0DAD 100%);
-		background-position: 0% 50%;
-	}
-	33% {
-		background: linear-gradient(135deg, #7EC8FF 0%, #8A5BFF 50%, #5E1AAB 100%);
-		background-position: 50% 50%;
-	}
-	66% {
-		background: linear-gradient(135deg, #ADD8E6 0%, #4B2BFF 50%, #4B0082 100%);
-		background-position: 100% 50%;
-	}
-	100% {
-		background: linear-gradient(135deg, #87CEEB 0%, #6B2FFF 50%, #6A0DAD 100%);
-		background-position: 0% 50%;
-	}
+.app {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
 }
-
-/* Respect users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-	body {
-		animation: none;
-		/* keep a pleasant static gradient that still matches the theme */
-		background: linear-gradient(135deg, #87CEEB 0%, #6B2FFF 50%, #6A0DAD 100%);
-	}
+.app h1 {
+    font-weight: 25px;
+    color: #002e4d;
+    font-weight: 600;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
 }
-
-/* Keep existing classes/ids but make the quiz content pop on top of the gradient */
-.quiz-container {
-	max-width: 720px;
-	margin: 6vh auto;
-	padding: 1.75rem;
-	border-radius: 12px;
-	background: rgba(255,255,255,0.08); /* subtle translucent panel */
-	box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-	color: inherit; /* keep text color from body (white) */
-	backdrop-filter: blur(6px);
+.quiz {
+    padding: 20px 0;
 }
-
-#question {
-	margin: 0 0 1rem 0;
-	font-size: 1.4rem;
-	line-height: 1.3;
+.quiz h2 {
+    font-size: 18px;
+    color: #002e4d;
+    font-weight: 600;
 }
-
-#answers {
-	display: flex;
-	flex-direction: column;
-	gap: 0.6rem;
-	margin-bottom: 1rem;
+.btn {
+    background: #fff;
+    color: #222;
+    font-weight: 600;
+    width: 100%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
-
+.btn:hover:not([disabled]) {
+    background: #222;
+    color: #fff;  
+}
+.btn:disabled {
+    cursor: no-drop;
+}
 #next-btn {
-	appearance: none;
-	-webkit-appearance: none;
-	border: none;
-	padding: 0.65rem 1rem;
-	border-radius: 8px;
-	background: rgba(255,255,255,0.14);
-	color: #fff;
-	cursor: pointer;
-	transition: transform 0.14s ease, background 0.14s ease, box-shadow 0.14s ease;
+    background: #002e4d;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
 }
-
-#next-btn:hover {
-	transform: translateY(-3px);
-	background: rgba(255,255,255,0.20);
-	box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+.correct {
+    background: #9aeabe;
 }
-
-/* Small responsive tweak */
-@media (max-width: 480px) {
-	.quiz-container { margin: 4vh 1rem; padding: 1rem; }
-	#question { font-size: 1.1rem; }
+.wrong {
+    background: #ff7b7b;
 }
-
